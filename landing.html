@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Greetings</title>
+    </head>
+    <body>
+        <h1>
+            Good afternoon!
+        </h1>
+        <ul id="list"></ul>
+        <script type="text/javascript">
+            function receiveSSE() {
+                console.log("started");
+                const evtSource = new EventSource('sse');
+                const eventList = document.querySelector('#list');
+
+                evtSource.onmessage = (e) => {
+                  console.log(e);
+                  const newElement = document.createElement("li");
+
+                  newElement.textContent = `message: ${e.data}`;
+                  eventList.appendChild(newElement);
+                }
+            }
+
+            window.onload = (event) => {
+                receiveSSE();
+            }
+        </script>
+    </body>
+</html>
