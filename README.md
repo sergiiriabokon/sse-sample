@@ -1,6 +1,6 @@
 Implementation of Server Push technology in pure Rust without any external dependencies.
 
-Based on on-thread web-server example, that emits server-side events on /sse path.
+Based on one-thread web-server example, that emits server-side events on /sse path.
 
 to run
 
